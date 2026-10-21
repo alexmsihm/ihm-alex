@@ -55,10 +55,33 @@ tillToppen.hidden = true;
 document.body.append(tillToppen);
 const toppObservator = new IntersectionObserver(([entry]) => {
   tillToppen.hidden = entry.isIntersecting;
+  if (entry.isIntersecting) markeraMeny(null);
 }, { threshold: 0 });
 toppObservator.observe(document.querySelector(".sidhuvud"));
 tillToppen.addEventListener("click", () => {
   const startsidelank = document.querySelector(".wordmark");
   startsidelank?.focus({ preventScroll: true });
 });
+
+const menylankar = [...document.querySelectorAll("nav a")];
+function markeraMeny(hash) {
+  document.querySelectorAll("nav a").forEach((lank) => {
+    if (lank.getAttribute("href") === hash) {
+      lank.setAttribute("aria-current", "location");
+    } else {
+      lank.removeAttribute("aria-current");
+    }
+  });
+}
+document.addEventListener("click", (event) => {
+  const lank = event.target.closest("a[href^='#']");
+  if (!lank || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+  const hash = lank.getAttribute("href");
+  if (hash === "#topp") markeraMeny(null);
+  else if (menylankar.some((meny) => meny.getAttribute("href") === hash)) markeraMeny(hash);
+});
+window.addEventListener("hashchange", () => {
+  markeraMeny(location.hash === "#topp" ? null : location.hash);
+});
+if (location.hash && location.hash !== "#topp") markeraMeny(location.hash);
 

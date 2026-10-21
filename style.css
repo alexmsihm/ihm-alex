@@ -7,6 +7,10 @@
 
 /* Soft aurora lighting, composited behind every interactive element. */
 body{isolation:isolate}
+nav a{position:relative}
+nav .nav-contact{border-bottom-color:transparent}
+nav a::after{content:"";position:absolute;bottom:0;left:10%;right:10%;height:3px;border-radius:99px;background:#fff;box-shadow:0 0 7px #fff,0 0 16px #9ebda1;opacity:0;transform:scaleX(.45);transition:opacity .25s,transform .25s;pointer-events:none}
+nav a[aria-current="location"]::after{opacity:1;transform:scaleX(1)}
 .back-to-top{position:fixed;right:24px;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:20;display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:10px 17px;border:1px solid var(--line);border-radius:50px;background:var(--paper);color:var(--ink);box-shadow:0 4px 20px #14241e18;font-size:12px;font-weight:600;text-decoration:none}
 .back-to-top[hidden]{display:none}
 .back-to-top:hover{border-color:var(--green)}
