@@ -70,3 +70,7 @@ body.morkt .ambient-light::after{background:none;border-color:#85c2f270;box-shad
 @keyframes visible-wave{from{transform:translate3d(-5%,-55px,0) rotate(-7deg)}to{transform:translate3d(5%,55px,0) rotate(7deg)}}
 @media(max-width:600px){.ambient-light::after{left:-40%;width:180%;height:70%;top:55%}}
 @media(prefers-reduced-motion:reduce){.ambient-light::before,.ambient-light::after{animation:none;will-change:auto}}
+
+/* The selected digital network replaces earlier light-wave effects. */
+.ambient-light::before,.ambient-light::after{display:none}
+.network-canvas{display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none}

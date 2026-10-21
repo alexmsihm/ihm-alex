@@ -9,43 +9,19 @@ function visaTema(morkt) {
 }
 let sparatTema = null;
 try { sparatTema = localStorage.getItem("alex-tema"); } catch {}
-visaTema(sparatTema === "morkt" || (!sparatTema && window.matchMedia("(prefers-color-scheme: dark)").matches));
+visaTema(sparatTema !== "ljust");
 temaknapp?.addEventListener("click", () => {
   const morkt = !document.body.classList.contains("morkt");
   visaTema(morkt);
   try { localStorage.setItem("alex-tema", morkt ? "morkt" : "ljust"); } catch {}
 });
 
-// Decorative light stays behind the content and never intercepts input.
+// Decorative network stays behind all page content.
 const bakgrund = document.createElement("div");
 bakgrund.className = "ambient-light";
 bakgrund.setAttribute("aria-hidden", "true");
-bakgrund.innerHTML = '<span class="ambient-orb orb-one"></span><span class="ambient-orb orb-two"></span><span class="ambient-orb orb-three"></span><span class="pointer-glow"></span>';
+bakgrund.innerHTML = '<canvas class="network-canvas"></canvas>';
 document.body.prepend(bakgrund);
-
-const rorelse = window.matchMedia("(prefers-reduced-motion: reduce)");
-const finPekare = window.matchMedia("(hover: hover) and (pointer: fine)");
-let ljusFrame = null;
-let pekarX = 50;
-let pekarY = 35;
-function flyttaLjus(event) {
-  if (rorelse.matches || !finPekare.matches) return;
-  pekarX = event.clientX;
-  pekarY = event.clientY;
-  if (ljusFrame !== null) return;
-  ljusFrame = requestAnimationFrame(() => {
-    bakgrund.style.setProperty("--pointer-x", `${pekarX}px`);
-    bakgrund.style.setProperty("--pointer-y", `${pekarY}px`);
-    bakgrund.classList.add("pointer-active");
-    ljusFrame = null;
-  });
-}
-window.addEventListener("pointermove", flyttaLjus, { passive: true });
-function gomPekarljus() { bakgrund.classList.remove("pointer-active"); }
-document.documentElement.addEventListener("pointerleave", gomPekarljus);
-window.addEventListener("blur", gomPekarljus);
-rorelse.addEventListener("change", gomPekarljus);
-finPekare.addEventListener("change", gomPekarljus);
 
 const tillToppen = document.createElement("a");
 tillToppen.className = "back-to-top";
