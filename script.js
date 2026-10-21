@@ -16,3 +16,34 @@ temaknapp?.addEventListener("click", () => {
   try { localStorage.setItem("alex-tema", morkt ? "morkt" : "ljust"); } catch {}
 });
 
+// Decorative light stays behind the content and never intercepts input.
+const bakgrund = document.createElement("div");
+bakgrund.className = "ambient-light";
+bakgrund.setAttribute("aria-hidden", "true");
+bakgrund.innerHTML = '<span class="ambient-orb orb-one"></span><span class="ambient-orb orb-two"></span><span class="ambient-orb orb-three"></span><span class="pointer-glow"></span>';
+document.body.prepend(bakgrund);
+
+const rorelse = window.matchMedia("(prefers-reduced-motion: reduce)");
+const finPekare = window.matchMedia("(hover: hover) and (pointer: fine)");
+let ljusFrame = null;
+let pekarX = 50;
+let pekarY = 35;
+function flyttaLjus(event) {
+  if (rorelse.matches || !finPekare.matches) return;
+  pekarX = event.clientX;
+  pekarY = event.clientY;
+  if (ljusFrame !== null) return;
+  ljusFrame = requestAnimationFrame(() => {
+    bakgrund.style.setProperty("--pointer-x", `${pekarX}px`);
+    bakgrund.style.setProperty("--pointer-y", `${pekarY}px`);
+    bakgrund.classList.add("pointer-active");
+    ljusFrame = null;
+  });
+}
+window.addEventListener("pointermove", flyttaLjus, { passive: true });
+function gomPekarljus() { bakgrund.classList.remove("pointer-active"); }
+document.documentElement.addEventListener("pointerleave", gomPekarljus);
+window.addEventListener("blur", gomPekarljus);
+rorelse.addEventListener("change", gomPekarljus);
+finPekare.addEventListener("change", gomPekarljus);
+
