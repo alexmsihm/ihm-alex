@@ -47,3 +47,18 @@ window.addEventListener("blur", gomPekarljus);
 rorelse.addEventListener("change", gomPekarljus);
 finPekare.addEventListener("change", gomPekarljus);
 
+const tillToppen = document.createElement("a");
+tillToppen.className = "back-to-top";
+tillToppen.href = "#topp";
+tillToppen.innerHTML = '<span aria-hidden="true">↑</span> Till toppen';
+tillToppen.hidden = true;
+document.body.append(tillToppen);
+const toppObservator = new IntersectionObserver(([entry]) => {
+  tillToppen.hidden = entry.isIntersecting;
+}, { threshold: 0 });
+toppObservator.observe(document.querySelector(".sidhuvud"));
+tillToppen.addEventListener("click", () => {
+  const startsidelank = document.querySelector(".wordmark");
+  startsidelank?.focus({ preventScroll: true });
+});
+
