@@ -1,205 +1,79 @@
-/* 1 · Box-modellen: bredden gäller hela lådan */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
+/* Editorial portfolio — responsive, dependency-free layout */
+:root{--text:#272720;--muted:#626258;--yta:#f6f4ec;--card:#efede3;--line:#d8d6c9;--accent:#b93b20;--bright:#ee613b;--ink:#272720;--font:"Montserrat",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:2rem}
+body{margin:0;background:var(--yta);color:var(--text);font-family:var(--font);font-size:1rem;line-height:1.75}
+body.morkt{--text:#f1efdf;--muted:#bcbcad;--yta:#1d211d;--card:#282e27;--line:#424a3e;--accent:#ff9875}
+a{color:inherit;text-underline-offset:5px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+h1,h2,h3,p{margin-top:0}
+h1,h2,h3{line-height:1.12;letter-spacing:-.055em}
+h2{font-size:clamp(2rem,4vw,3.5rem);font-weight:600;max-width:22ch;margin-bottom:2rem}
+h3{font-size:1.35rem;letter-spacing:-.035em}
+p{max-width:65ch}
+em{font-family:Georgia,serif;font-weight:400;color:var(--accent)}
+button{font:inherit;cursor:pointer}
+.sidhuvud{max-width:1320px;margin:auto;padding:1.6rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;border-bottom:1px solid var(--line)}
+.wordmark{font-size:1.3rem;font-weight:800;text-decoration:none;letter-spacing:-.06em;white-space:nowrap}
+.wordmark span{font-size:.7rem;vertical-align:top;margin-left:.25rem;color:var(--accent)}
+.roll{font-size:.62rem;letter-spacing:.045em;margin:0;color:var(--muted)}
+nav ul{display:flex;flex-wrap:wrap;gap:1.6rem;list-style:none;padding:0;margin:0}
+nav a{font-size:.78rem;font-weight:600;text-decoration:none;display:inline-block;padding:.5rem 0}
+nav a:hover,.text-link:hover{color:var(--accent)}
+#tema{background:transparent;border:1px solid var(--line);border-radius:30px;padding:.6rem 1rem;color:var(--text);font-size:.72rem;min-height:44px}
+main{max-width:1320px;padding:0 3rem;margin:auto}
+section{padding:6rem 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;font-weight:700;color:var(--accent);margin-bottom:1.5rem}
+.intro{display:grid;grid-template-columns:1.35fr 1fr;gap:4rem;align-items:center;padding:5rem 0}
+h1{font-size:clamp(2.9rem,5.6vw,5.1rem);font-weight:600;margin-bottom:1.8rem}
+.hero-lead{font-size:.96rem;max-width:44ch;color:var(--muted)}
+.hero-links{display:flex;gap:1.6rem;flex-wrap:wrap;align-items:center;margin-top:2rem}
+.knapp{display:inline-flex;align-items:center;gap:1.5rem;background:var(--accent);color:var(--yta);padding:.95rem 1.3rem;border-radius:4px;font-size:.75rem;text-decoration:none;font-weight:700;min-height:48px;transition:transform .2s}
+.knapp:hover{transform:translateY(-3px)}
+.text-link{font-size:.75rem;font-weight:600}
+.hero-art{background:#dfe5d0;aspect-ratio:1/1.17;position:relative;overflow:hidden;border-radius:48% 48% 4px 4px;color:#272720}
+.art-label{position:absolute;top:16%;left:0;width:100%;text-align:center;font-size:.55rem;letter-spacing:.18em}
+.orbit{position:absolute;width:74%;height:65%;border:1px solid #8a987b;border-radius:50%;left:13%;top:22%;transform:rotate(-25deg)}
+.art-star{position:absolute;top:12%;left:10%;font-size:clamp(10rem,24vw,23rem);line-height:1;color:#b93b20;transform:rotate(-12deg)}
+.art-note{position:absolute;bottom:12%;left:12%;font-family:Georgia,serif;font-style:italic;font-size:1.5rem;line-height:1.2}
+.art-index{position:absolute;bottom:5%;right:8%;font-size:.6rem;letter-spacing:.15em}
+.discipline-strip{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.4rem 0;border-bottom:1px solid var(--line);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+.discipline-strip span:nth-child(even){color:var(--accent);font-size:1.3rem}
+#om{display:grid;grid-template-columns:1fr 1fr;column-gap:5rem}
+#om .eyebrow{grid-column:1/-1}
+#om h2{grid-row:2/4}
+#om p:not(.eyebrow){color:var(--muted);font-size:.92rem}
+.rutnat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;list-style:none;padding:0;margin:2.5rem 0 0}
+.kort{min-width:0}
+#tjanster .kort{border-top:2px solid var(--line);padding:2rem 1rem 0 0;counter-increment:service}
+#tjanster .rutnat{counter-reset:service}
+#tjanster .kort::before{content:"0" counter(service) " /";display:block;font-size:.7rem;color:var(--accent);margin-bottom:2rem}
+.kort p{font-size:.85rem;color:var(--muted)}
+.project-art{height:245px;padding:1.3rem;position:relative;overflow:hidden;margin-bottom:1.5rem;color:#272720;display:flex;flex-direction:column;justify-content:space-between}
+.project-art span{font-size:.55rem;letter-spacing:.08em;z-index:1}
+.project-art strong{font-family:Georgia,serif;font-size:2.8rem;line-height:1.1;letter-spacing:-.05em;z-index:1}
+.project-art i{position:absolute;font-style:normal;font-size:10rem;right:.3rem;top:.6rem;opacity:.14;line-height:1}
+.seo-art{background:#dce3ce}
+.content-art{background:#edb8a0}
+.web-art{background:#dad7ee}
+#projekt .kort{transition:transform .2s}
+#projekt .kort:hover{transform:translateY(-5px)}
+#kontakt{margin:4rem 0;background:var(--card);padding:4rem;text-align:center;border:0}
+#kontakt h2{max-width:none;font-size:clamp(2.5rem,6vw,5rem);margin-bottom:1.5rem}
+#kontakt p{margin-left:auto;margin-right:auto}
+#kontakt a{overflow-wrap:anywhere}
+#kontakt p:nth-last-child(2) a{font-size:clamp(1rem,2.4vw,1.7rem);font-weight:600}
+footer{padding:2rem 1.5rem;text-align:center;font-size:.65rem;color:var(--muted)}
+footer p{margin:auto}
+.skip-link{position:fixed;top:1rem;left:1rem;padding:.6rem 1rem;background:var(--yta);z-index:10;transform:translateY(-200%)}
+.skip-link:focus{transform:translateY(0)}
+@media(max-width:1000px){.sidhuvud{flex-wrap:wrap;gap:1rem}.sidhuvud nav{order:3;width:100%}.intro{gap:2rem}.hero-art{aspect-ratio:1/1.4}.art-star{font-size:29vw}.art-note{font-size:1.2rem}.rutnat{gap:1rem}}
+@media(max-width:650px){.sidhuvud{padding:1.2rem 1.25rem}main{padding:0 1.25rem}nav ul{justify-content:space-between;gap:.5rem}nav a{font-size:.68rem}.intro{grid-template-columns:1fr;padding:3rem 0;gap:2.5rem}.hero-art{aspect-ratio:1.35;max-width:100%}.art-star{font-size:65vw;top:-15%;left:25%}.art-label{top:12%;text-align:left;left:9%;font-size:.5rem}.orbit{top:8%;height:90%}.art-note{bottom:15%;left:9%}.discipline-strip{font-size:.5rem;letter-spacing:0;gap:.4rem}section{padding:3.5rem 0}#om{display:block}#om h2{max-width:18ch}.rutnat{grid-template-columns:1fr;gap:2rem}#tjanster .kort::before{margin-bottom:1rem}.project-art{height:235px}#kontakt{margin:2rem 0;padding:3rem 1.2rem}.hero-links{gap:1rem}h1{font-size:clamp(2.6rem,10.5vw,4rem)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
 
-/* 2 · Varumärket som variabler */
-:root {
-    --text: #1f2430;
-    --yta: #ffffff;
-    --yta-2: #f3f1ec;
-    --kant: #e2ded5;
-    --primar: #1d4e89;
-    --accent: #ffd166;
-    --knapptext: #1f2430;
-    --luft: 1rem;
-    --radie: 12px;
-    --typsnitt-rubrik: "Montserrat", system-ui, -apple-system, sans-serif;
-    --typsnitt-brodtext: "Times New Roman", Times, serif;
-}
 
-/* 3 · Grundstil */
-body {
-    margin: 0;
-    font-family: var(--typsnitt-brodtext);
-    font-size: 1.125rem;
-    line-height: 1.6;
-    color: var(--text);
-    background: var(--yta);
-}
-
-h1,
-h2,
-h3 {
-    font-family: var(--typsnitt-rubrik);
-    line-height: 1.2;
-    color: var(--primar);
-    letter-spacing: -0.01em;
-}
-
-h1 {
-    font-size: 2rem;
-    margin: 0;
-}
-
-h2 {
-    font-size: 1.75rem;
-    margin-top: 0;
-}
-
-h3 {
-    font-size: 1.25rem;
-}
-
-p {
-    max-width: 65ch;
-}
-
-a {
-    color: var(--primar);
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* 4 · Sidhuvud och meny */
-.sidhuvud {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--luft);
-    padding: calc(var(--luft) * 1.5);
-    background: var(--yta-2);
-}
-
-.roll {
-    font-family: var(--typsnitt-rubrik);
-    margin: 0;
-}
-
-nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--luft);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav a {
-    font-family: var(--typsnitt-rubrik);
-    font-weight: 600;
-    text-decoration: none;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* 5 · Innehållsytan */
-main {
-    max-width: 70rem;
-    margin: 0 auto;
-    padding: 0 calc(var(--luft) * 1.5);
-}
-
-section {
-    padding: calc(var(--luft) * 3) 0;
-}
-
-.knapp {
-    display: inline-block;
-    padding: 0.75rem 1.25rem;
-    background: var(--accent);
-    color: var(--knapptext);
-    font-family: var(--typsnitt-rubrik);
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: var(--radie);
-}
-
-/* 6 · Kort i ett rutnät */
-.rutnat {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: calc(var(--luft) * 1.5);
-    list-style: none;
-    padding: 0;
-}
-
-.kort {
-    background: var(--yta-2);
-    padding: calc(var(--luft) * 1.5);
-    border: 1px solid var(--kant);
-    border-radius: var(--radie);
-}
-
-.kort h3 {
-    margin-top: 0;
-}
-
-.kort img {
-    border-radius: calc(var(--radie) / 2);
-    margin-bottom: var(--luft);
-}
-
-/* 7 · Knappar och fokus */
-button {
-    font: inherit;
-    font-family: var(--typsnitt-rubrik);
-    font-weight: 600;
-    padding: 0.6rem 1.1rem;
-    color: var(--primar);
-    background: var(--yta);
-    border: 2px solid var(--primar);
-    border-radius: var(--radie);
-    cursor: pointer;
-}
-
-a:focus-visible,
-button:focus-visible {
-    outline: 3px solid var(--primar);
-    outline-offset: 3px;
-}
-
-footer {
-    padding: calc(var(--luft) * 2);
-    text-align: center;
-    background: var(--yta-2);
-}
-
-footer p {
-    margin: 0 auto;
-}
-
-/* 8 · Större skärmar */
-@media (min-width: 48rem) {
-    .sidhuvud {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: calc(var(--luft) * 1.5) calc(var(--luft) * 3);
-    }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-}
-
-/* 9 · Mörkt läge: nya färger när body har klassen morkt */
-body.morkt {
-    --text: #e8e6e1;
-    --yta: #14171f;
-    --yta-2: #1f2430;
-    --kant: #343a48;
-    --primar: #8ab4f8;
-}
+/* Portrait in the opening section */
+.hero-portrait{margin:0;min-width:0;width:100%;max-width:420px;justify-self:center}
+.hero-portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 35%;border-radius:8px}
+.hero-portrait figcaption{font-size:.65rem;color:var(--muted);margin-top:.8rem}
+@media(max-width:650px){.hero-portrait{max-width:340px}.hero-portrait img{aspect-ratio:4/5}}
