@@ -66,3 +66,12 @@ body.morkt .orb-three{top:8%;left:10%;width:80vw;aspect-ratio:1.8;background:rad
 @keyframes blue-aurora{from{transform:translate3d(-5%,-2%,0) rotate(-12deg) scale(1)}to{transform:translate3d(8%,10%,0) rotate(10deg) scale(1.15)}}
 @media(max-width:600px){body:not(.morkt) .orb-one{width:180vw;right:-65%;top:-5%}body:not(.morkt) .orb-two{width:200vw;bottom:-5%;left:-75%}body:not(.morkt) .orb-three{width:160vw;left:-30%;top:40%}body.morkt .orb-one{width:160vw;right:-60%;top:-10%}body.morkt .orb-two{width:180vw;left:-60%;bottom:0}body.morkt .orb-three{width:160vw;left:-30%;top:25%}}
 @media(prefers-reduced-motion:reduce){body:not(.morkt) .ambient-orb,body.morkt .ambient-orb{animation:none;will-change:auto}}
+
+/* More visible clouds and a compact light following the pointer. */
+body:not(.morkt){background:#dcecfb}
+body:not(.morkt) .ambient-orb{filter:blur(7px)}
+body:not(.morkt) .orb-one{background:radial-gradient(ellipse at 60% 40%,#fff 0%,#fffffff2 28%,#ffffff85 47%,transparent 67%)}
+body:not(.morkt) .orb-two{background:radial-gradient(ellipse at 50% 50%,#fff 0%,#ffffffd9 32%,#ffffff55 50%,transparent 68%)}
+body:not(.morkt) .orb-three{background:radial-gradient(ellipse,#ffffffed 0%,#ffffffa6 35%,transparent 67%)}
+body:not(.morkt) .pointer-glow{background:radial-gradient(100px circle at var(--pointer-x) var(--pointer-y),#ffffffed 0%,#8bbdeba6 24%,#77aee84d 48%,transparent 75%)}
+body.morkt .pointer-glow{background:radial-gradient(100px circle at var(--pointer-x) var(--pointer-y),#c2e6ff70 0%,#80bbf34d 25%,#6fa7ed26 48%,transparent 75%)}
