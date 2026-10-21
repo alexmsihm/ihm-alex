@@ -61,3 +61,12 @@ body.morkt .ambient-light::after{background:repeating-linear-gradient(65deg,tran
 @keyframes flowing-light-cross{from{transform:translate3d(7%,-7%,0) rotate(6deg)}to{transform:translate3d(-7%,7%,0) rotate(-6deg)}}
 @media(max-width:600px){.ambient-light::before,.ambient-light::after{inset:-25%;filter:blur(16px)}}
 @media(prefers-reduced-motion:reduce){.ambient-light::before,.ambient-light::after{animation:none;will-change:auto}}
+
+/* Visible curved wave lines give the eye a clear reference for motion. */
+.ambient-light::before{filter:blur(12px);animation-duration:8s;background:repeating-linear-gradient(115deg,transparent 0%,transparent 13%,#69adeb47 20%,#b9e1fa99 26%,transparent 34%,transparent 48%)}
+.ambient-light::after{inset:auto;left:-20%;top:56%;width:140%;height:85%;border-radius:48%;background:none;border:2px solid #78adeb70;box-shadow:0 -22px 0 -1px #8ebbf063,0 -44px 0 -1px #a4cbf454,0 -66px 0 -1px #b6d8f947;filter:none;opacity:.8;animation:visible-wave 8s ease-in-out infinite alternate;animation-delay:-2s}
+body.morkt .ambient-light::before{background:repeating-linear-gradient(115deg,transparent 0%,transparent 13%,#4286bf40 20%,#72b4e266 26%,transparent 34%,transparent 48%)}
+body.morkt .ambient-light::after{background:none;border-color:#85c2f270;box-shadow:0 -22px 0 -1px #72a9e363,0 -44px 0 -1px #7d94d954,0 -66px 0 -1px #92b4e647}
+@keyframes visible-wave{from{transform:translate3d(-5%,-55px,0) rotate(-7deg)}to{transform:translate3d(5%,55px,0) rotate(7deg)}}
+@media(max-width:600px){.ambient-light::after{left:-40%;width:180%;height:70%;top:55%}}
+@media(prefers-reduced-motion:reduce){.ambient-light::before,.ambient-light::after{animation:none;will-change:auto}}
