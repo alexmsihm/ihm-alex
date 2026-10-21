@@ -82,3 +82,5 @@ body.morkt .water-light-secondary{opacity:.13}
 @keyframes water-flow-secondary{0%{transform:rotate(24deg) translate3d(-3%,0,0);background-position:0 0}50%{transform:rotate(18deg) translate3d(3%,2%,0)}100%{transform:rotate(24deg) translate3d(-3%,0,0);background-position:570px 460px}}
 @media(max-width:600px){.water-light{background-size:320px 270px,410px 350px;opacity:.4}body.morkt .water-light{opacity:.17}}
 @media(prefers-reduced-motion:reduce){.water-light{animation:none;filter:blur(2px);will-change:auto}}
+
+.water-light{animation-duration:32s}.water-light-secondary{animation-duration:42s}

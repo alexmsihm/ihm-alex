@@ -1,0 +1,23 @@
+.effect-picker{position:relative;z-index:30;display:flex;justify-content:center;align-items:center;gap:16px;padding:14px 20px;background:var(--paper);border-bottom:1px solid var(--line);font-size:12px}.effect-picker label{font-weight:700}.effect-picker select{font:inherit;max-width:100%;padding:9px 34px 9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);min-height:44px}.effect-note{color:var(--muted)}
+body:not([data-effect="water"]) .water-light{display:none}
+.demo-stage{position:absolute;inset:0;overflow:hidden;pointer-events:none}.demo-blob{display:none;position:absolute;pointer-events:none;will-change:transform}
+body[data-effect="aurora"] .demo-blob{display:block;width:130vw;height:55vh;left:-15vw;top:0;border-radius:50%;filter:blur(30px);background:linear-gradient(115deg,transparent 15%,#85cbe877 35%,#99a9ed66 52%,#c5ecf57a 65%,transparent 85%);animation:demo-aurora 17s ease-in-out infinite alternate}
+body[data-effect="aurora"] .demo-b{top:45%;animation-delay:-9s;animation-duration:23s;opacity:.65}
+body[data-effect="aurora"] .demo-c{top:20%;left:10%;animation-delay:-4s;opacity:.45}
+body.morkt[data-effect="aurora"] .demo-blob{background:linear-gradient(115deg,transparent 15%,#3486af66 35%,#6975d455 52%,#74c6e659 65%,transparent 85%)}
+@keyframes demo-aurora{from{transform:translate3d(-8%,-12%,0) rotate(-16deg) scaleY(.7)}to{transform:translate3d(8%,12%,0) rotate(12deg) scaleY(1.25)}}
+body[data-effect="clouds"] .demo-blob{display:block;width:95vw;height:50vh;left:-20vw;top:5%;border-radius:50%;filter:blur(22px);background:radial-gradient(ellipse,#fffffffa 0%,#ffffffcf 35%,transparent 70%);animation:demo-clouds 36s ease-in-out infinite alternate}
+body[data-effect="clouds"]{background:#dcecfb}
+body[data-effect="clouds"] .demo-b{left:35%;top:45%;animation-delay:-18s;animation-duration:42s}
+body[data-effect="clouds"] .demo-c{left:40%;top:-10%;width:85vw;animation-delay:-7s;animation-duration:48s}
+body.morkt[data-effect="clouds"]{background:#101c32}
+body.morkt[data-effect="clouds"] .demo-blob{background:radial-gradient(ellipse,#7193bf40 0%,#5076a02b 35%,transparent 70%)}
+@keyframes demo-clouds{from{transform:translate3d(-12%,0,0) scale(1)}to{transform:translate3d(25%,10%,0) scale(1.2)}}
+body[data-effect="fields"] .demo-blob{display:block;width:65vw;height:70vh;left:-12%;top:-20%;border-radius:38% 62% 60% 40%;background:#84b9ed55;filter:blur(45px);animation:demo-fields 19s ease-in-out infinite alternate}
+body[data-effect="fields"] .demo-b{background:#99aceb55;left:45%;top:35%;animation-delay:-10s;animation-duration:26s}
+body[data-effect="fields"] .demo-c{background:#8edce044;left:35%;top:-15%;animation-delay:-5s;animation-duration:23s}
+body.morkt[data-effect="fields"] .demo-blob{opacity:.5}
+@keyframes demo-fields{from{transform:translate3d(-5%,0,0) rotate(-15deg);border-radius:38% 62% 60% 40%}to{transform:translate3d(20%,20%,0) rotate(25deg);border-radius:65% 35% 38% 62%}}
+.demo-canvas{position:absolute;inset:0;width:100%;height:100%;display:none}body[data-effect="particles"] .demo-canvas,body[data-effect="network"] .demo-canvas{display:block}
+@media(max-width:600px){.effect-picker{gap:8px;flex-wrap:wrap}.effect-note{display:none}.effect-picker label{font-size:11px}.effect-picker select{font-size:11px}body[data-effect="fields"] .demo-blob{width:110vw}body[data-effect="clouds"] .demo-blob{width:150vw}}
+@media(prefers-reduced-motion:reduce){body .demo-blob{animation:none!important;will-change:auto}}
