@@ -20,6 +20,15 @@ body.morkt .orb-two{background:radial-gradient(ellipse,#4b785143 0%,#296c6428 40
 body.morkt .orb-three{background:radial-gradient(ellipse,#8d99651f 0%,transparent 68%)}
 body.morkt .pointer-glow{background:radial-gradient(380px circle at var(--pointer-x) var(--pointer-y),#72a98a20,transparent 72%)}
 .portrait-frame{background:transparent}
+.hero-portrait{max-width:330px}
+body:not(.morkt) .ambient-orb{opacity:1}
+body:not(.morkt) .orb-one{background:radial-gradient(ellipse,#9ecbb77a 0%,#bdd8ac50 38%,transparent 72%)}
+body:not(.morkt) .orb-two{background:radial-gradient(ellipse,#a6cfc777 0%,#c4d8b64a 40%,transparent 72%)}
+body:not(.morkt) .orb-three{background:radial-gradient(ellipse,#ead6a766 0%,#e6ddc333 40%,transparent 70%)}
+body:not(.morkt) .pointer-glow{background:radial-gradient(400px circle at var(--pointer-x) var(--pointer-y),#91bea54a,transparent 74%)}
+@media(min-width:1500px){.hero-portrait{max-width:360px}}
+@media(max-width:1000px){.hero-portrait{max-width:300px}}
+@media(max-width:520px){.hero-portrait{max-width:290px;justify-self:center}}
 @keyframes aurora-drift{from{transform:translate3d(-4%,0,0) scale(1)}to{transform:translate3d(10%,12%,0) scale(1.16)}}
 @media(max-width:600px){.ambient-orb{width:140vw}.orb-one{top:-15%;right:-70%}.orb-two{bottom:-10%;left:-75%}.orb-three{top:30%;left:-30%}.pointer-glow{display:none}}
 @media(prefers-reduced-motion:reduce){.ambient-orb{animation:none;will-change:auto}.pointer-glow{display:none}}
