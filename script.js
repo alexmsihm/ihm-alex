@@ -61,3 +61,24 @@ window.addEventListener("hashchange", () => {
 });
 if (location.hash && location.hash !== "#topp") markeraMeny(location.hash);
 
+// Reveal project evidence before the browser follows its in-page link.
+function visaArbetsprov(hash) {
+  if (!hash || !hash.startsWith("#")) return;
+  let id;
+  try { id = decodeURIComponent(hash.slice(1)); } catch { return; }
+  const mal = document.getElementById(id);
+  if (!mal) return;
+  let del = mal.closest("details");
+  while (del) {
+    del.open = true;
+    del = del.parentElement?.closest("details");
+  }
+}
+document.addEventListener("click", (event) => {
+  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+  const lank = event.target.closest("a[href^='#']");
+  if (lank) visaArbetsprov(lank.getAttribute("href"));
+});
+window.addEventListener("hashchange", () => visaArbetsprov(location.hash));
+visaArbetsprov(location.hash);
+
