@@ -31,8 +31,9 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=22">
   <link rel="stylesheet" href="work.css?v=1">
-  <script defer src="script.js?v=9"></script>
-  <script defer src="light-rays.js?v=1"></script>
+  <link rel="stylesheet" href="refinement.css?v=2">
+  <script defer src="script.js?v=10"></script>
+  <script defer src="light-rays.js?v=2"></script>
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -50,7 +51,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <body id="topp" class="morkt">
 <a class="skip-link" href="#innehall">Hoppa till innehåll</a>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJDVMCP2" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<header class="sidhuvud"><a class="wordmark" href="#topp" aria-label="Alex Sterner, till sidans början"><span class="monogram" aria-hidden="true">as.</span><span>Alex Sterner<span class="brand-role">Digital marknadsföring</span></span></a><nav aria-label="Huvudmeny"><a href="#om">Om mig</a><a href="#tjanster">Kompetenser</a><a href="#projekt">Projekt</a><a class="nav-contact" href="#kontakt">Ta kontakt <span aria-hidden="true">↗</span></a></nav><button id="tema" type="button" aria-label="Byt till ljust läge" aria-pressed="true">Ljust läge</button></header>
+<header class="sidhuvud"><a class="wordmark" href="#topp" aria-label="Alex Sterner, till sidans början"><span class="monogram" aria-hidden="true">as.</span><span>Alex Sterner<span class="brand-role">Digital marknadsföring</span></span></a><nav aria-label="Huvudmeny"><a href="#projekt">Projekt</a><a href="#om">Om mig</a><a href="#tjanster">Kompetenser</a><a class="nav-contact" href="#kontakt">Ta kontakt <span aria-hidden="true">↗</span></a></nav><button id="tema" type="button" aria-label="Byt till ljust läge" aria-pressed="true">Ljust läge</button></header>
 <main id="innehall">
 <section class="intro" aria-labelledby="hero-title"><div class="hero-copy"><p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Digital Marketing Specialist-student · IHM Göteborg</p><h1 id="hero-title">Digital närvaro.<br><span>Mänskligt fokus.</span></h1><p class="hero-lead">Jag är Alex Sterner, student på IHM i Göteborg med fokus på SEO, digital marknadsföring och AI &amp; tech. Här delar jag mitt eget arbete och min utveckling – och knyter gärna nya kontakter inom branschen.</p><div class="hero-links"><a class="knapp" href="#projekt">Se mitt arbete <span aria-hidden="true">↗</span></a><a class="text-link" href="#kontakt">Låt oss prata <span aria-hidden="true">↗</span></a></div><div class="hero-note"><span class="note-line" aria-hidden="true"></span><p>Med erfarenhet av kundmöten.<br>Och nyfikenhet på nästa digitala steg.</p></div></div><figure class="hero-portrait"><div class="portrait-frame"><img src="img/alex-kavaj-transparent.png" alt="Porträtt av Alex Sterner" width="1254" height="1254" fetchpriority="high"><span class="portrait-label">Nyfikenhet. Analys. Omtanke.</span></div><figcaption><span>Alex Sterner</span><span>Göteborg, Sverige <span aria-hidden="true">↗</span></span></figcaption></figure></section>
 <div class="discipline-strip"><span class="strip-label">Mina fokusområden</span><span>AI & tech</span><span>Digital marknadsföring</span><span>SEO & innehåll</span></div>
@@ -61,12 +62,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
   <article class="portfolio-case" id="portfolio-case" aria-labelledby="case-title">
     <div class="case-overview">
-      <figure class="case-preview">
-        <a href="img/portfolio-desktop.jpg" target="_blank" rel="noopener" aria-label="Öppna en större skärmbild av portfolion på dator">
-          <img src="img/portfolio-desktop.jpg" alt="Skärmbild av portfolions startsida på dator med presentation, porträtt och navigation" width="1000" height="625" loading="lazy">
-        </a>
-        <figcaption>Den faktiska webbplatsen <span>Öppna större bild ↗</span></figcaption>
-      </figure>
+      <div class="project-gallery" aria-label="Bilder från portfolion">
+        <div class="device-stage">
+          <span class="stage-label">EN IDÉ. FLERA SKÄRMAR.</span>
+          <figure class="desktop-device">
+            <a class="gallery-image desktop-screen" href="img/portfolio-desktop.jpg" data-caption="Portfolion på dator – en tydlig introduktion och plats för arbetet bakom." aria-label="Förstora datorvisningen" aria-haspopup="dialog">
+              <span class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>alex-sterner.vercel.app</span></span>
+              <img src="img/portfolio-desktop.jpg" alt="Portfolions startsida visad i en datorram" width="1067" height="618" loading="lazy">
+            </a>
+            <div class="laptop-base" aria-hidden="true"></div>
+          </figure>
+          <figure class="mobile-device">
+            <a class="gallery-image" href="img/portfolio-mobile.jpg" data-caption="Portfolion på mobil – läsbar text, kvarliggande meny och luftigare innehåll." aria-label="Förstora mobilvisningen" aria-haspopup="dialog">
+              <img src="img/portfolio-mobile.jpg" alt="Portfolions responsiva startsida visad i en mobilram" width="325" height="703" loading="lazy">
+            </a>
+          </figure>
+          <span class="stage-note">Design som följer med.</span>
+        </div>
+        <p class="gallery-hint"><span>Dator &amp; mobil</span><span>Klicka på en bild för att förstora <span aria-hidden="true">↗</span></span></p>
+        <div class="project-details">
+          <figure>
+            <a class="gallery-image" href="img/portfolio-detail-type.jpg" data-caption="Detalj: typografi och introduktion. Tydlig hierarki och mer läsbar text." aria-label="Förstora detaljbild av typografin" aria-haspopup="dialog"><img src="img/portfolio-detail-type.jpg" alt="Detaljbild av portfolions rubrik och introduktion" width="518" height="401" loading="lazy"></a>
+            <figcaption><span>01 / Typografi &amp; hierarki</span><span aria-hidden="true">↗</span></figcaption>
+          </figure>
+          <figure>
+            <a class="gallery-image" href="img/portfolio-detail-focus.jpg" data-caption="Detalj: fokusområden. Tre egna ytor med tydliga vägar till exempel från projektet." aria-label="Förstora detaljbild av fokusområdena" aria-haspopup="dialog"><img src="img/portfolio-detail-focus.jpg" alt="Detaljbild av kompetensernas olika ytor och länkar till arbetsprover" width="983" height="385" loading="lazy"></a>
+            <figcaption><span>02 / Struktur &amp; innehåll</span><span aria-hidden="true">↗</span></figcaption>
+          </figure>
+        </div>
+      </div>
       <div class="case-intro">
         <p class="case-label">Eget projekt · Webb &amp; innehåll</p>
         <h3 id="case-title">En portfolio som får växa</h3>
@@ -79,6 +103,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <a class="evidence-link" href="#ai-arbetssatt">Se hur jag arbetar med AI &amp; tech <span aria-hidden="true">↗</span></a>
       </div>
     </div>
+    <div class="process-heading"><p class="eyebrow">Från idé till webbplats</p><p>Fyra steg i arbetet.</p></div>
     <ol class="case-process" aria-label="Från problem till lärdom">
       <li><span class="process-step">01 / Problem</span><h4>Göra min riktning tydlig</h4><p>Hur kan jag visa vem jag är och vad jag vill utvecklas inom, på ett sätt som är lätt att ta till sig?</p></li>
       <li><span class="process-step">02 / Mitt arbete</span><h4>Forma innehåll och uttryck</h4><p>Jag har arbetat med sidans innehåll, struktur och visuella riktning. AI har hjälpt till att omsätta idéerna i kod.</p></li>
@@ -113,7 +138,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
   </article>
 </section>
-<section id="om" class="about-section" aria-labelledby="om-title"><div><p class="eyebrow">02 / Personen bakom</p><h2 id="om-title">Det börjar med<br>att förstå <span>människor.</span></h2><div class="about-signature">Alex Sterner<span>Digital Marketing Specialist-student</span></div></div><div class="about-copy"><p class="large-copy">Min väg till digital marknadsföring började i mötet med kunden.</p><p>Jag har arbetat i butik och tar med mig intresset för vad som får människor att stanna upp, ställa en fråga och välja ett företag.</p><p>Nu utbildar jag mig till Digital Marketing Specialist på IHM Business School i Göteborg. Jag tycker lika mycket om AI och tech som om SEO, och gillar att hitta idéer för hur företag kan marknadsföra sig. Jag vill kombinera min erfarenhet av kundmöten med kreativitet och digitala verktyg.</p><div class="about-facts"><div><span>Utbildning</span><strong>IHM Business School</strong></div><div><span>Utgångspunkt</span><strong>Göteborg</strong></div></div></div></section>
+<section id="om" class="about-section" aria-labelledby="om-title">
+  <div>
+    <p class="eyebrow">02 / Personen bakom</p>
+    <h2 id="om-title">Det börjar med<br>att förstå <span>människor.</span></h2>
+    <div class="about-signature">Alex Sterner<span>Digital Marketing Specialist-student</span></div>
+  </div>
+  <div class="about-copy">
+    <p class="large-copy">Min väg till digital marknadsföring började i mötet med kunden.</p>
+    <p>Jag har arbetat i butik och tar med mig intresset för vad som får människor att stanna upp, ställa en fråga och välja ett företag.</p>
+    <p>Just nu studerar jag till Digital Marketing Specialist på IHM Business School i Göteborg. Jag är nyfiken på alla delar av utbildningen, men hittills har AI och tech samt sökmotoroptimering väckt ett särskilt stort intresse. Jag vill kombinera min erfarenhet av kundmöten med kreativitet och digitala verktyg.</p>
+    <div class="about-facts"><div><span>Utbildning</span><strong>IHM Business School</strong></div><div><span>Utgångspunkt</span><strong>Göteborg</strong></div></div>
+  </div>
+  <div class="education-panel" aria-labelledby="utbildning-title">
+    <div class="education-heading">
+      <div><p class="eyebrow">Min utbildning · Pågående</p><h3 id="utbildning-title">En grund att<br>bygga vidare på.</h3></div>
+      <p>Jag har hittills klarat kursen Marknadsföring. Steg för steg bygger jag vidare på den grunden och utvecklar min förståelse för digital marknadsföring, från strategi och innehåll till teknik och analys. Här är kurserna som ingår i min utbildning.</p>
+    </div>
+    <ul class="course-list" aria-label="Kurser i utbildningen till Digital Marketing Specialist">
+      <li class="course-complete"><span>Marknadsföring</span><span class="course-status"><span aria-hidden="true">✓</span> Avklarad</span></li>
+      <li><span>Karriärplanering</span></li>
+      <li><span>AI och tech för digitala marknadsförare</span></li>
+      <li><span>Sökmotoroptimering</span></li>
+      <li><span>Paid Media – Social och SEM</span></li>
+      <li><span>Content och Influencer Marketing</span></li>
+      <li><span>Tracking och digital analys</span></li>
+      <li><span>Lärande i arbete 1</span></li>
+      <li><span>Pitch, storytelling och presentation</span></li>
+      <li><span>Programmatic advertising</span></li>
+      <li><span>Inbound marketing &amp; marketing automation</span></li>
+      <li><span>Juridik för digitala marknadsförare</span></li>
+      <li><span>Budgetering och kalkylering för digitala marknadsförare</span></li>
+      <li><span>Digital strategi och kampanjhantering</span></li>
+    </ul>
+  </div>
+</section>
 <section id="tjanster" aria-labelledby="kompetens-title">
   <div class="section-heading"><div><p class="eyebrow">03 / Fokusområden</p><h2 id="kompetens-title">Nyfikenhet som<br><span>blir till kunskap.</span></h2></div><p class="section-intro">Jag studerar digital marknadsföring och utvecklar mina kunskaper inom tre områden. Webbplatsen visar en del av det jag omsätter i praktiken.</p></div>
   <div class="services">
@@ -123,4 +182,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 </section>
 <section id="kontakt" aria-labelledby="kontakt-title"><div class="contact-top"><p class="eyebrow">04 / Låt oss höras</p><span>Göteborg & digitalt</span></div><h2 id="kontakt-title">Nästa bra idé börjar<br>med <span>ett samtal.</span></h2><p>Vill du prata om digital marknadsföring, SEO eller AI? Jag knyter gärna nya kontakter, utbyter idéer och berättar mer om det jag lär mig på IHM.</p><div class="contact-actions"><a class="knapp" href="mailto:alex.m-s@hotmail.com">Skriv till Alex <span aria-hidden="true">↗</span></a><a class="text-link" href="https://www.linkedin.com/in/alex-matei-sterner-b89927431" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></div><a class="contact-email" href="mailto:alex.m-s@hotmail.com">alex.m-s@hotmail.com</a></section>
-</main><footer><span>© 2026 Alex Sterner</span><span>Nyfiken på människor. Driven av möjligheter.</span><a href="#topp">Till toppen ↑</a></footer></body></html>
+</main><footer><span>© 2026 Alex Sterner</span><span>Nyfiken på människor. Driven av möjligheter.</span><a href="#topp">Till toppen ↑</a></footer>
+<dialog class="image-lightbox" aria-labelledby="lightbox-title" aria-describedby="lightbox-caption">
+  <div class="lightbox-toolbar"><h2 id="lightbox-title">En närmare titt</h2><button class="lightbox-close" type="button" aria-label="Stäng bildförstoring">Stäng <span aria-hidden="true">×</span></button></div>
+  <figure><img class="lightbox-image" alt=""><figcaption id="lightbox-caption"></figcaption></figure>
+  <div class="lightbox-navigation"><button class="lightbox-prev" type="button" aria-label="Föregående bild">← <span>Föregående</span></button><span class="lightbox-count" aria-live="polite"></span><button class="lightbox-next" type="button" aria-label="Nästa bild"><span>Nästa</span> →</button></div>
+</dialog>
+</body></html>

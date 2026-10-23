@@ -1,8 +1,10 @@
 (() => {
   const canvas = document.querySelector('.network-canvas');
-  const ctx = canvas.getContext('2d');
+  const intro = document.querySelector('.intro');
+  const ctx = canvas?.getContext('2d');
+  if (!ctx || !intro) return;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  let width=0,height=0,time=0,last=0,frame=null,resizeFrame=null;
+  let width=0,height=0,time=0,last=0,frame=null,resizeFrame=null,visible=true;
   function draw() {
     ctx.clearRect(0,0,width,height);
     const dark=document.body.classList.contains('morkt');
@@ -13,8 +15,8 @@
       const x=(i-2)*width*.3+Math.sin(time*.15+i)*width*.08;
       const gradient=ctx.createLinearGradient(x-width*.11,0,x+width*.11,0);
       gradient.addColorStop(0,color(0));
-      gradient.addColorStop(.48,color(dark?.16:.12));
-      gradient.addColorStop(.55,color(dark?.22:.18,true));
+      gradient.addColorStop(.48,color(dark?.10:.08));
+      gradient.addColorStop(.55,color(dark?.16:.13,true));
       gradient.addColorStop(1,color(0));
       ctx.fillStyle=gradient;ctx.fillRect(x-width*.11,-height*1.5,width*.22,height*3);
       ctx.restore();
@@ -22,13 +24,8 @@
     ctx.restore();
   }
   function fit() {
-    const view=window.visualViewport;
-    const zoom=view?.scale||1;
-    const cssWidth=view?.width||innerWidth,cssHeight=view?.height||innerHeight;
-    canvas.parentElement.style.width=`${cssWidth}px`;
-    canvas.parentElement.style.height=`${cssHeight}px`;
-    canvas.parentElement.style.transform=`translate(${view?.offsetLeft||0}px,${view?.offsetTop||0}px)`;
-    width=cssWidth*zoom;height=cssHeight*zoom;
+    const bounds=canvas.parentElement.getBoundingClientRect();
+    width=bounds.width;height=bounds.height;
     const ratio=Math.min(devicePixelRatio||1,1.5);
     canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);
     ctx.setTransform(ratio,0,0,ratio,0,0);draw();
@@ -39,7 +36,7 @@
   }
   function tick(now) {
     frame=null;
-    if(document.hidden||reduced.matches)return;
+    if(document.hidden||reduced.matches||!visible)return;
     if(!last||now-last>=1000/30) {
       time+=last?Math.min((now-last)/1000,.1):0;last=now;draw();
     }
@@ -48,11 +45,13 @@
   function restart() {
     if(frame!==null)cancelAnimationFrame(frame);
     frame=null;last=0;draw();
-    if(!document.hidden&&!reduced.matches)frame=requestAnimationFrame(tick);
+    if(!document.hidden&&!reduced.matches&&visible)frame=requestAnimationFrame(tick);
   }
   document.addEventListener('visibilitychange',restart);
   reduced.addEventListener('change',restart);
   new MutationObserver(draw).observe(document.body,{attributes:true,attributeFilter:['class']});
+  new ResizeObserver(resize).observe(canvas.parentElement);
+  new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;restart();}).observe(intro);
   window.addEventListener('resize',resize,{passive:true});
   window.visualViewport?.addEventListener('resize',resize,{passive:true});
   window.visualViewport?.addEventListener('scroll',resize,{passive:true});
