@@ -2,6 +2,26 @@
 <html lang="sv">
 <head>
   <meta charset="utf-8">
+  <script data-cookieconsent="ignore">
+    (() => {
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      let navigatedOnPage = false;
+      function startAtTop() {
+        if (location.hash) history.replaceState(history.state, "", location.pathname + location.search);
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      }
+      startAtTop();
+      document.addEventListener("click", (event) => {
+        if (event.target.closest("a[href^='#']")) navigatedOnPage = true;
+      });
+      window.addEventListener("load", () => {
+        if (!navigatedOnPage) startAtTop();
+      }, { once: true });
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted || !navigatedOnPage) startAtTop();
+      });
+    })();
+  </script>
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d60df734-f335-419f-a68a-1d393180d654" data-blockingmode="auto" data-culture="SV" type="text/javascript"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alex Sterner – Digital marknadsförare i Göteborg</title>
